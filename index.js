@@ -178,10 +178,11 @@ class EpicGamesClientLoginAdapter {
         width: options.width,
         height: options.height,
       },
+      executablePath: '/usr/bin/chromium-browser',
       args: [
         `--window-size=${options.width},${options.height}`,
         `--lang=${options.language}`,
-        '--disable-features=site-per-process'
+        '--disable-features=site-per-process', '--no-sandbox', '--disable-setuid-sandbox'
       ],
       ...options.puppeteer,
     });
